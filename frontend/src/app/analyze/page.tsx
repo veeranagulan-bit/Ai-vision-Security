@@ -31,7 +31,8 @@ export default function AnalyzePage() {
     try {
       setStep("processing");
       
-      const response = await fetch("http://localhost:8000/api/analyze/image", {
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+      const response = await fetch(`${API_URL}/api/analyze/image`, {
         method: "POST",
         body: formData,
       });
